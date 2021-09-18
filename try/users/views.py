@@ -61,3 +61,4 @@ def update_client_details(request, id):
             return Response({"data": client})
     except Exception:
         raise Http404('Client not found')
+# TODO: Не работает POST для обновления полей - выходит ошибка "detail": "Not found."
