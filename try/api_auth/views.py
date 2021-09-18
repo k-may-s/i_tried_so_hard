@@ -3,8 +3,6 @@ import string
 
 from rest_framework import views
 from rest_framework.response import Response
-
-from .models import AuthUser
 from .serializers import AuthUserSerializer
 
 
