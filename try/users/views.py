@@ -10,24 +10,28 @@ def create_client(request):
     client_data = ClientSerializer(data=request.data)
     if client_data.is_valid():
         client_data.save()
-        return Response({"response": "Create user - success"})
+        return Response({"data": "Create user - success"})
     else:
-        return Response({'response': "Something wrong... Again..."})
+        return HttpResponse(status=400)
 
 
 @api_view(['GET'])
 def read(request):
-    data = Client.objects.values()
-    return Response({"data": data})
+    try:
+        data = Client.objects.values()
+        return Response({"data": data})
+    except Exception:
+        return HttpResponse(status=204)
 
 
 @api_view(['GET'])
 def details_client_view(request, id):
     try:
         client_data = Client.objects.values().get(id=id)
+        return Response({"data": client_data})
     except Exception:
         return HttpResponse(status=204)
-    return Response({"data": client_data})
+
 
 
 @api_view(['POST'])
