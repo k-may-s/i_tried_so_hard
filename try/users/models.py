@@ -8,5 +8,3 @@ class Client(models.Model):
     phone_number = models.CharField(max_length=60)
     address = models.CharField(max_length=120, blank=True)
     rate = models.CharField(max_length=60)
-
-# TODO: Не переиспользуются id клиента
